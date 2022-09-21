@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: clamav-mirror
+  namespace: cra
+spec:
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: clamav-mirror
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
