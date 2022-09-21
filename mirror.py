@@ -32,9 +32,9 @@ if __name__ == "__main__":
 
     logging.info("Starting web server")
     try:
-        os.chdir('/clamav')
-        with socketserver.TCPServer(("", 80), http.server.SimpleHTTPRequestHandler) as httpd:
-            logging.info("Now serving at port TCP 80")
+        os.chdir('/.cvdupdate/database')
+        with socketserver.TCPServer(("", 8080), http.server.SimpleHTTPRequestHandler) as httpd:
+            logging.info("Now serving at port TCP 8080")
             httpd.serve_forever()
     except Exception as e:
         logging.error("Failed bringing up the web server. %s" % e)
